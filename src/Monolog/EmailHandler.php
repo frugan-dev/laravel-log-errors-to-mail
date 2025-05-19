@@ -74,7 +74,7 @@ class EmailHandler implements HandlerInterface, ProcessableHandlerInterface
                 $deduplicationHandler = new DeduplicationHandler(
                     $mailHandler,
                     // Put the deduplication store into the tests directory
-                    (app()->runningUnitTests() ? __DIR__ . '/../../tests/deduplicate.log' : null),
+                    (app()->runningUnitTests() ? __DIR__ . '/../../tests/deduplicate.log' : config('laravel_log_errors_to_mail.deduplicate_path')),
                     // try to deduplicate all log levels.
                     Level::Debug
                 );
